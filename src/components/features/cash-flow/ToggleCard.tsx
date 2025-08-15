@@ -17,36 +17,7 @@ export function ToggleCard({ selectedPeriod, onPeriodChange, months }: ToggleCar
 
 
 
-  const generateMonths = () => {
-    const { month: currentMonth, year: currentYear } = getCurrentMonth()
-    const months = []
-    
-    // Generate 6 months: 4 past + current + 1 future
-    for (let i = -4; i <= 1; i++) {
-      let monthIndex = currentMonth + i
-      let year = currentYear
-      
-      // Handle year rollover
-      if (monthIndex < 0) {
-        monthIndex += 12
-        year -= 1
-      } else if (monthIndex >= 12) {
-        monthIndex -= 12
-        year += 1
-      }
-      
-      months.push({
-        label: getMonthLabel(monthIndex, year),
-        monthIndex,
-        year,
-        isCurrent: i === 0,
-        isPast: i < 0,
-        isFuture: i > 0
-      })
-    }
-    
-    return months
-  }
+
 
   const currentMonthData = months.find(m => m.isCurrent)
 
