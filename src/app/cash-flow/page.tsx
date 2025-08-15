@@ -1,5 +1,6 @@
 import { MobileHeader } from "@/components/features/cash-flow/MobileHeader"
 import { TilesGallery, defaultTiles } from "@/components/features/cash-flow/TilesGallery"
+import { ToggleCard } from "@/components/features/cash-flow/ToggleCard"
 
 export default function CashFlowPage() {
   return (
@@ -42,15 +43,8 @@ export default function CashFlowPage() {
               {/* Spacing after tiles gallery */}
               <div className="h-4"></div>
 
-              {/* New Card Below Gallery */}
-              <div className="mx-4">
-                <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-                  {/* Empty content for now */}
-                  <div className="h-32 flex items-center justify-center">
-                    <p className="text-gray-400 text-sm">New card content will be added here</p>
-                  </div>
-                </div>
-              </div>
+              {/* Toggle Card with Money Movements/Balance Tracker */}
+              <ToggleCard />
 
               {/* Content Area - Empty for now, just showing header and tiles */}
               <div className="flex-1 p-4">
