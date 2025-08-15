@@ -252,7 +252,7 @@ export function ToggleCard() {
               {/* Balance Display Section */}
               <div className="flex flex-col items-center justify-center h-32 text-center">
                 <div className="text-[12px] font-figtree text-[#282B3A] mb-2">
-                  Balance on {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+                  Projected balance for 31st of Aug
                 </div>
                 <div className="text-[24px] font-figtree font-semibold text-teal-600">
                   £2,500.00
