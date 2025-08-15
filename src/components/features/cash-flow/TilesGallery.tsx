@@ -26,18 +26,14 @@ export function TilesGallery({ tiles }: TilesGalleryProps) {
   // Mouse event handlers for desktop drag scrolling
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollContainerRef.current) return
-    
     setIsDragging(true)
     setStartX(e.pageX - scrollContainerRef.current.offsetLeft)
     setScrollLeft(scrollContainerRef.current.scrollLeft)
-    
-    // Prevent text selection during drag
     e.preventDefault()
   }
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !scrollContainerRef.current) return
-    
     const x = e.pageX - scrollContainerRef.current.offsetLeft
     const walk = (x - startX) * 2 // Scroll speed multiplier
     scrollContainerRef.current.scrollLeft = scrollLeft - walk
@@ -58,31 +54,10 @@ export function TilesGallery({ tiles }: TilesGalleryProps) {
     }
   }, [isDragging])
 
-  // Function to format today's date
-  const getTodayDate = () => {
-    const today = new Date()
-    const day = today.getDate()
-    const month = today.toLocaleDateString('en-US', { month: 'short' })
-    const year = today.getFullYear()
-    return `${day} ${month} ${year}`
-  }
-
-  // Function to get date 45 days ahead
-  const getProjectedDate = () => {
-    const today = new Date()
-    const projectedDate = new Date(today)
-    projectedDate.setDate(today.getDate() + 45)
-    
-    const day = projectedDate.getDate()
-    const month = projectedDate.toLocaleDateString('en-US', { month: 'short' })
-    const year = projectedDate.getFullYear()
-    return `${day} ${month} ${year}`
-  }
-
   return (
     <div>
       {/* Gallery Container - Full width, no horizontal padding */}
-      <div 
+      <div
         ref={scrollContainerRef}
         className="overflow-x-auto scrollbar-hide select-none"
         onMouseDown={handleMouseDown}
@@ -97,10 +72,10 @@ export function TilesGallery({ tiles }: TilesGalleryProps) {
               title={tile.title === "Projected" ? "Projected Balance" : tile.title}
               amount={tile.amount}
               date={
-                tile.title === "Cash today" 
-                  ? getTodayDate() 
-                  : tile.title === "Projected" 
-                    ? getProjectedDate() 
+                tile.title === "Cash today"
+                  ? getTodayDate()
+                  : tile.title === "Projected"
+                    ? getProjectedDate()
                     : tile.date
               }
               icon={tile.icon}
@@ -114,7 +89,27 @@ export function TilesGallery({ tiles }: TilesGalleryProps) {
   )
 }
 
-// Default tiles data based on the image
+// Function to format today's date
+const getTodayDate = () => {
+  const today = new Date()
+  const day = today.getDate()
+  const month = today.toLocaleDateString('en-US', { month: 'short' })
+  const year = today.getFullYear()
+  return `${day} ${month} ${year}`
+}
+
+// Function to get date 45 days ahead
+const getProjectedDate = () => {
+  const today = new Date()
+  const projectedDate = new Date(today)
+  projectedDate.setDate(today.getDate() + 45)
+
+  const day = projectedDate.getDate()
+  const month = projectedDate.toLocaleDateString('en-US', { month: 'short' })
+  const year = projectedDate.getFullYear()
+  return `${day} ${month} ${year}`
+}
+
 export const defaultTiles: TileData[] = [
   {
     title: "Cash today",

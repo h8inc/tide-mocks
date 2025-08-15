@@ -11,20 +11,20 @@ export function ToggleCard() {
       <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
         {/* Toggle Group */}
         <div className="mb-4">
-          <ToggleGroup 
-            type="single" 
-            value={activeTab} 
+          <ToggleGroup
+            type="single"
+            value={activeTab}
             onValueChange={(value) => value && setActiveTab(value)}
             className="grid grid-cols-2 w-full"
           >
-            <ToggleGroupItem 
-              value="money-movements" 
+            <ToggleGroupItem
+              value="money-movements"
               className="data-[state=on]:bg-blue-100 data-[state=on]:text-blue-700 data-[state=on]:font-medium rounded-l-lg rounded-r-none border-r-0"
             >
               Money movements
             </ToggleGroupItem>
-            <ToggleGroupItem 
-              value="balance-tracker" 
+            <ToggleGroupItem
+              value="balance-tracker"
               className="data-[state=on]:bg-blue-100 data-[state=on]:text-blue-700 data-[state=on]:font-medium rounded-l-lg rounded-r-none border-l-0"
             >
               Balance tracker

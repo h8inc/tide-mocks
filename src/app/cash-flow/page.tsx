@@ -1,6 +1,7 @@
 import { MobileHeader } from "@/components/features/cash-flow/MobileHeader"
 import { TilesGallery, defaultTiles } from "@/components/features/cash-flow/TilesGallery"
 import { ToggleCard } from "@/components/features/cash-flow/ToggleCard"
+import { ContentCard } from "@/components/features/cash-flow/ContentCard"
 
 export default function CashFlowPage() {
   return (
@@ -13,44 +14,52 @@ export default function CashFlowPage() {
 
           {/* Main Frame */}
           <div className="relative bg-black rounded-[3rem] p-2 shadow-2xl">
-            {/* Screen */}
-            <div className="bg-background rounded-[2.5rem] overflow-hidden">
-              {/* Status Bar */}
-              <div className="flex justify-between items-center px-6 pt-2 pb-1 text-xs font-medium text-black">
-                <span>9:41</span>
-                <div className="flex items-center gap-1">
-                  <div className="flex gap-0.5">
-                    <div className="w-1 h-3 bg-black rounded-sm"></div>
-                    <div className="w-1 h-3 bg-black rounded-sm"></div>
-                    <div className="w-1 h-3 bg-black rounded-sm"></div>
-                    <div className="w-1 h-3 bg-black rounded-sm"></div>
+            {/* Screen - Capped at 812px height with scrolling */}
+            <div className="bg-background rounded-[2.5rem] overflow-hidden h-[812px]">
+              {/* Scrollable Content Container */}
+              <div className="h-full overflow-y-auto scrollbar-hide">
+                {/* Status Bar */}
+                <div className="flex justify-between items-center px-6 pt-2 pb-1 text-xs font-medium text-black">
+                  <span>9:41</span>
+                  <div className="flex items-center gap-1">
+                    <div className="flex gap-0.5">
+                      <div className="w-1 h-3 bg-black rounded-sm"></div>
+                      <div className="w-1 h-3 bg-black rounded-sm"></div>
+                      <div className="w-1 h-3 bg-black rounded-sm"></div>
+                      <div className="w-1 h-3 bg-black rounded-sm"></div>
+                    </div>
+                    <div className="w-4 h-2 border border-black rounded-sm"></div>
+                    <span>99</span>
                   </div>
-                  <div className="w-4 h-2 border border-black rounded-sm"></div>
-                  <span>99</span>
                 </div>
-              </div>
 
-              {/* Content */}
-              {/* Mobile Header */}
-              <MobileHeader />
+                {/* Content */}
+                {/* Mobile Header */}
+                <MobileHeader />
 
-              {/* Spacing after header */}
-              <div className="h-4"></div>
+                {/* Spacing after header */}
+                <div className="h-4"></div>
 
-              {/* Tiles Gallery */}
-              <TilesGallery tiles={defaultTiles} />
+                {/* Tiles Gallery */}
+                <TilesGallery tiles={defaultTiles} />
 
-              {/* Spacing after tiles gallery */}
-              <div className="h-4"></div>
+                {/* Spacing after tiles gallery */}
+                <div className="h-4"></div>
 
-              {/* Toggle Card with Money Movements/Balance Tracker */}
-              <ToggleCard />
+                {/* Toggle Card with Money Movements/Balance Tracker */}
+                <ToggleCard />
 
-              {/* Content Area - Empty for now, just showing header and tiles */}
-              <div className="flex-1 p-4">
-                <div className="text-center text-gray-500 mt-8">
-                  <p className="text-sm">More content will be added in next steps</p>
-                </div>
+                {/* Spacing after toggle card */}
+                <div className="h-4"></div>
+
+                {/* New Content Card */}
+                <ContentCard />
+
+                {/* Spacing after content card */}
+                <div className="h-4"></div>
+
+                {/* Bottom spacing for scroll */}
+                <div className="h-8"></div>
               </div>
             </div>
           </div>
