@@ -118,9 +118,10 @@ export function ToggleCard() {
                 {/* Money In Card */}
                 <div className="bg-transparent rounded-xl py-4 px-2 flex flex-col items-center justify-center h-32">
                   <h4 className="text-[12px] font-figtree text-[#282B3A] mb-3 text-center tracking-wide">
-                    Received Money In
+                    {selectedPeriod === currentMonthData?.label ? 'Received Money In' : 
+                     months.find(m => m.label === selectedPeriod)?.isFuture ? 'Expected Money In' : 'Received Money In'}
                   </h4>
-                  {currentMonthData?.isCurrent ? (
+                  {selectedPeriod === currentMonthData?.label ? (
                     <div className="space-y-3 text-center">
                       <div>
                         <div className="text-[16px] font-figtree font-semibold text-teal-600 leading-tight">
@@ -148,9 +149,10 @@ export function ToggleCard() {
                 {/* Money Out Card */}
                 <div className="bg-transparent rounded-xl py-4 px-2 flex flex-col items-center justify-center h-32">
                   <h4 className="text-[12px] font-figtree text-[#282B3A] mb-3 text-center tracking-wide">
-                    Paid Money Out
+                    {selectedPeriod === currentMonthData?.label ? 'Paid Money Out' : 
+                     months.find(m => m.label === selectedPeriod)?.isFuture ? 'Expected Money Out' : 'Paid Money Out'}
                   </h4>
-                  {currentMonthData?.isCurrent ? (
+                  {selectedPeriod === currentMonthData?.label ? (
                     <div className="space-y-3 text-center">
                       <div>
                         <div className="text-[16px] font-figtree font-semibold text-orange-600 leading-tight">

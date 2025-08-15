@@ -19,20 +19,20 @@ export function FinancialTile({
   iconBgColor = "bg-gray-100"
 }: FinancialTileProps) {
   return (
-    <div className="flex-shrink-0 w-48 bg-white rounded-xl p-3 shadow-sm border border-gray-100">
+    <div className="flex-shrink-0 w-40 bg-white rounded-xl p-2 shadow-sm border border-gray-100">
       {/* Header with title and icon */}
-      <div className="flex items-center justify-between mb-2">
+      <div className="flex items-center justify-between mb-1">
         <h3 className="text-sm font-medium text-gray-700">{title}</h3>
         {Icon && (
-          <div className={`p-1.5 rounded-full ${iconBgColor}`}>
-            <Icon className={`w-4 h-4 ${iconColor}`} />
+          <div className={`p-1 rounded-full ${iconBgColor}`}>
+            <Icon className={`w-3 h-3 ${iconColor}`} />
           </div>
         )}
       </div>
 
       {/* Amount */}
       <div className="mb-1">
-        <span className="text-2xl font-bold text-gray-900">{amount}</span>
+        <span className="text-xl font-bold text-gray-900">{amount}</span>
       </div>
 
       {/* Date */}
