@@ -20,14 +20,44 @@ export default function CashFlowPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 py-4">
-      {/* iPhone Frame */}
-      <div className="mx-auto max-w-sm">
+      {/* Mobile Content - Hidden on larger screens */}
+      <div className="md:hidden">
+        {/* Content directly on mobile */}
+        <div className="px-4">
+          {/* Mobile Header */}
+          <MobileHeader />
+
+          {/* Spacing after header */}
+          <div className="h-2"></div>
+
+          {/* Tiles Gallery */}
+          <TilesGallery tiles={defaultTiles} />
+
+          {/* Spacing after tiles gallery */}
+          <div className="h-4"></div>
+
+          {/* Toggle Card with Money Movements/Balance Tracker */}
+          <ToggleCard selectedPeriod={selectedPeriod} onPeriodChange={setSelectedPeriod} months={months} />
+
+          {/* Spacing after toggle card */}
+          <div className="h-4"></div>
+
+          {/* Money Movements Content Card */}
+          <ContentCard selectedPeriod={selectedPeriod} months={months} />
+
+          {/* Bottom spacing */}
+          <div className="h-8"></div>
+        </div>
+      </div>
+
+      {/* iPhone Frame - Hidden on mobile, shown on tablet and up */}
+      <div className="hidden md:block mx-auto max-w-sm">
         <div className="relative mx-auto">
           {/* Top Notch */}
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-black rounded-b-3xl z-10"></div>
 
           {/* Main Frame */}
-          <div className="relative bg-black rounded-[3rem] p-2 shadow-2xl">
+          <div className="relative bg-black rounded-[3rem] p-1.5 shadow-2xl">
             {/* Screen - Capped at 812px height with scrolling */}
             <div className="bg-background rounded-[2.5rem] overflow-hidden h-[812px]">
               {/* Scrollable Content Container */}
@@ -68,8 +98,6 @@ export default function CashFlowPage() {
 
                 {/* Money Movements Content Card */}
                 <ContentCard selectedPeriod={selectedPeriod} months={months} />
-
-
 
                 {/* Bottom spacing for scroll */}
                 <div className="h-8"></div>
