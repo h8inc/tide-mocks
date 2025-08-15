@@ -280,7 +280,7 @@ export function ToggleCard() {
                   <div className="flex items-center justify-center h-32">
                     <div className="flex flex-col items-center gap-2 text-gray-500">
                       <Construction className="w-8 h-8" />
-                      <span className="text-[12px] font-figtree">I am building the chart and you'll see it soon</span>
+                      <span className="text-[12px] font-figtree">I am building the chart and you&apos;ll see it soon</span>
                     </div>
                   </div>
                 </div>
