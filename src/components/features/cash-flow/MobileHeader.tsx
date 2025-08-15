@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react"
 
 export function MobileHeader() {
   return (
-    <header className="flex justify-between items-center h-14 bg-background border-b border-gray-200 px-4">
+    <header className="flex justify-between items-center h-14 bg-background border-b border-gray-200 px-4 shadow-sm">
       {/* Left Side - Back Arrow */}
       <button className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
         <ArrowLeft className="w-6 h-6" />

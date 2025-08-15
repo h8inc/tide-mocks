@@ -19,7 +19,7 @@ export default function CashFlowPage() {
   ])
 
   return (
-    <div className="min-h-screen bg-gray-100 py-8">
+    <div className="min-h-screen bg-gray-100 py-4">
       {/* iPhone Frame */}
       <div className="mx-auto max-w-sm">
         <div className="relative mx-auto">
@@ -52,7 +52,7 @@ export default function CashFlowPage() {
                 <MobileHeader />
 
                 {/* Spacing after header */}
-                <div className="h-4"></div>
+                <div className="h-2"></div>
 
                 {/* Tiles Gallery */}
                 <TilesGallery tiles={defaultTiles} />
