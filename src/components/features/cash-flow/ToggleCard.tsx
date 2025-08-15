@@ -4,21 +4,18 @@ import React, { useState } from "react"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { Construction } from "lucide-react"
 
-export function ToggleCard() {
+interface ToggleCardProps {
+  selectedPeriod: string
+  onPeriodChange: (period: string) => void
+  months: Array<{ label: string; isCurrent: boolean; isFuture: boolean }>
+}
+
+export function ToggleCard({ selectedPeriod, onPeriodChange, months }: ToggleCardProps) {
   const [activeTab, setActiveTab] = useState("money-movements")
   
-  // Get current date and calculate months
-  const getCurrentMonth = () => {
-    const now = new Date()
-    const currentMonth = now.getMonth() // 0-11
-    const currentYear = now.getFullYear()
-    return { month: currentMonth, year: currentYear }
-  }
 
-  const getMonthLabel = (monthIndex: number, year: number) => {
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    return months[monthIndex]
-  }
+
+
 
   const generateMonths = () => {
     const { month: currentMonth, year: currentYear } = getCurrentMonth()
@@ -51,9 +48,7 @@ export function ToggleCard() {
     return months
   }
 
-  const months = generateMonths()
   const currentMonthData = months.find(m => m.isCurrent)
-  const [selectedPeriod, setSelectedPeriod] = useState(currentMonthData?.label || "Aug")
 
   // Period data that matches the bar heights (keeping existing structure for now)
   const periodData: Record<string, { moneyIn: number; moneyOut: number; expectedMoneyIn?: number; expectedMoneyOut?: number }> = {
@@ -213,7 +208,7 @@ export function ToggleCard() {
                       <div 
                         key={index}
                         className={`flex flex-col items-center gap-1 cursor-pointer transition-all duration-200 ${selectedPeriod === month.label ? "bg-gray-100 rounded-lg p-2" : ""}`}
-                        onClick={() => setSelectedPeriod(month.label)}
+                        onClick={() => onPeriodChange(month.label)}
                       >
                         {month.isCurrent ? (
                           // Current month: Actual + Expected stacked
@@ -290,6 +285,8 @@ export function ToggleCard() {
             </div>
           )}
         </div>
+        
+
       </div>
     </div>
   )

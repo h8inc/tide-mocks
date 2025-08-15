@@ -1,9 +1,23 @@
+"use client"
+
+import React from "react"
 import { MobileHeader } from "@/components/features/cash-flow/MobileHeader"
 import { TilesGallery, defaultTiles } from "@/components/features/cash-flow/TilesGallery"
 import { ToggleCard } from "@/components/features/cash-flow/ToggleCard"
 import { ContentCard } from "@/components/features/cash-flow/ContentCard"
 
+
 export default function CashFlowPage() {
+  const [selectedPeriod, setSelectedPeriod] = React.useState("Aug")
+  const [months] = React.useState([
+    { label: "Apr", isCurrent: false, isFuture: false },
+    { label: "May", isCurrent: false, isFuture: false },
+    { label: "Jun", isCurrent: false, isFuture: false },
+    { label: "Jul", isCurrent: false, isFuture: false },
+    { label: "Aug", isCurrent: true, isFuture: false },
+    { label: "Sep", isCurrent: false, isFuture: true }
+  ])
+
   return (
     <div className="min-h-screen bg-gray-100 py-8">
       {/* iPhone Frame */}
@@ -47,16 +61,15 @@ export default function CashFlowPage() {
                 <div className="h-4"></div>
 
                 {/* Toggle Card with Money Movements/Balance Tracker */}
-                <ToggleCard />
+                <ToggleCard selectedPeriod={selectedPeriod} onPeriodChange={setSelectedPeriod} months={months} />
 
                 {/* Spacing after toggle card */}
                 <div className="h-4"></div>
 
-                {/* New Content Card */}
-                <ContentCard />
+                {/* Money Movements Content Card */}
+                <ContentCard selectedPeriod={selectedPeriod} months={months} />
 
-                {/* Spacing after content card */}
-                <div className="h-4"></div>
+
 
                 {/* Bottom spacing for scroll */}
                 <div className="h-8"></div>
