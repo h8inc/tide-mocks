@@ -42,7 +42,7 @@ export default function CashFlowPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gray-100 py-4">
+    <div className="min-h-screen bg-gray-100 py-1 md:py-4">
       {/* Mobile Content - Hidden on larger screens */}
       <div className="md:hidden">
         {/* Content directly on mobile */}
