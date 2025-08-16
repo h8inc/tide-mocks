@@ -18,6 +18,29 @@ export default function CashFlowPage() {
     { label: "Sep", isCurrent: false, isFuture: true }
   ])
 
+  // Preserve scroll position when changing periods
+  const handlePeriodChange = React.useCallback((period: string) => {
+    // Store current scroll position for both mobile and desktop versions
+    const mobileScrollContainer = document.querySelector('.md\\:hidden .px-4')
+    const desktopScrollContainer = document.querySelector('.overflow-y-auto')
+    
+    const mobileScrollTop = mobileScrollContainer?.scrollTop || 0
+    const desktopScrollTop = desktopScrollContainer?.scrollTop || 0
+    
+    // Update the period
+    setSelectedPeriod(period)
+    
+    // Restore scroll positions after re-render
+    requestAnimationFrame(() => {
+      if (mobileScrollContainer) {
+        mobileScrollContainer.scrollTop = mobileScrollTop
+      }
+      if (desktopScrollContainer) {
+        desktopScrollContainer.scrollTop = desktopScrollTop
+      }
+    })
+  }, [])
+
   return (
     <div className="min-h-screen bg-gray-100 py-4">
       {/* Mobile Content - Hidden on larger screens */}
@@ -37,7 +60,7 @@ export default function CashFlowPage() {
           <div className="h-4"></div>
 
           {/* Toggle Card with Money Movements/Balance Tracker */}
-          <ToggleCard selectedPeriod={selectedPeriod} onPeriodChange={setSelectedPeriod} months={months} />
+          <ToggleCard selectedPeriod={selectedPeriod} onPeriodChange={handlePeriodChange} months={months} />
 
           {/* Spacing after toggle card */}
           <div className="h-4"></div>
@@ -91,7 +114,7 @@ export default function CashFlowPage() {
                 <div className="h-4"></div>
 
                 {/* Toggle Card with Money Movements/Balance Tracker */}
-                <ToggleCard selectedPeriod={selectedPeriod} onPeriodChange={setSelectedPeriod} months={months} />
+                <ToggleCard selectedPeriod={selectedPeriod} onPeriodChange={handlePeriodChange} months={months} />
 
                 {/* Spacing after toggle card */}
                 <div className="h-4"></div>
