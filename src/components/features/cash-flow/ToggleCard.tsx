@@ -51,7 +51,7 @@ export function ToggleCard({ selectedPeriod, onPeriodChange, months }: ToggleCar
 
   return (
     <div className="mx-4">
-      <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#DDE8FF]">
+      <div className="bg-white rounded-2xl p-4 border border-[#DDE8FF]">
         {/* Toggle Group */}
         <div className="mb-6">
           <ToggleGroup
