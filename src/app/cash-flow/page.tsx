@@ -21,7 +21,7 @@ export default function CashFlowPage() {
   // Preserve scroll position when changing periods
   const handlePeriodChange = React.useCallback((period: string) => {
     // Store current scroll position for both mobile and desktop versions
-    const mobileScrollContainer = document.querySelector('.md\\:hidden .px-4')
+    const mobileScrollContainer = document.querySelector('.md\\:hidden')
     const desktopScrollContainer = document.querySelector('.overflow-y-auto')
     
     const mobileScrollTop = mobileScrollContainer?.scrollTop || 0
@@ -46,7 +46,7 @@ export default function CashFlowPage() {
       {/* Mobile Content - Hidden on larger screens */}
       <div className="md:hidden">
         {/* Content directly on mobile */}
-        <div className="px-4">
+        <div>
           {/* Mobile Header */}
           <MobileHeader />
 
