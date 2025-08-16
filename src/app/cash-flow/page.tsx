@@ -4,7 +4,7 @@ import React from "react"
 import { MobileHeader } from "@/components/features/cash-flow/MobileHeader"
 import { TilesGallery, defaultTiles } from "@/components/features/cash-flow/TilesGallery"
 import { ToggleCard } from "@/components/features/cash-flow/ToggleCard"
-import { ContentCard } from "@/components/features/cash-flow/ContentCard"
+import { MoneyMovements } from "@/components/features/cash-flow/MoneyMovements"
 
 
 export default function CashFlowPage() {
@@ -42,8 +42,8 @@ export default function CashFlowPage() {
           {/* Spacing after toggle card */}
           <div className="h-4"></div>
 
-          {/* Money Movements Content Card */}
-          <ContentCard selectedPeriod={selectedPeriod} months={months} />
+                          {/* Money Movements Widget */}
+                <MoneyMovements selectedPeriod={selectedPeriod} months={months} />
 
           {/* Bottom spacing */}
           <div className="h-8"></div>
@@ -96,8 +96,8 @@ export default function CashFlowPage() {
                 {/* Spacing after toggle card */}
                 <div className="h-4"></div>
 
-                {/* Money Movements Content Card */}
-                <ContentCard selectedPeriod={selectedPeriod} months={months} />
+                {/* Money Movements Widget */}
+                <MoneyMovements selectedPeriod={selectedPeriod} months={months} />
 
                 {/* Bottom spacing for scroll */}
                 <div className="h-8"></div>

@@ -3,12 +3,12 @@
 import React from "react"
 import { ChevronRight } from "lucide-react"
 
-interface ContentCardProps {
+interface MoneyMovementsProps {
   selectedPeriod: string
   months: Array<{ label: string; isCurrent: boolean; isFuture: boolean }>
 }
 
-export function ContentCard({ selectedPeriod, months }: ContentCardProps) {
+export function MoneyMovements({ selectedPeriod, months }: MoneyMovementsProps) {
   return (
     <div className="mx-4">
       <div className="bg-white rounded-2xl border border-[#DDE8FF] p-0 w-full max-w-[347px] mx-auto">
