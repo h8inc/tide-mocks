@@ -22,7 +22,7 @@ export function FinancialTile({
     <div className="flex-shrink-0 w-40 bg-white rounded-xl p-2 shadow-sm border border-gray-100">
       {/* Header with title and icon */}
       <div className="flex items-center justify-between mb-1">
-        <h3 className="text-sm font-medium text-gray-700">{title}</h3>
+        <h3 className="text-base font-medium text-[#282B3A]">{title}</h3>
         {Icon && (
           <div className={`p-1 rounded-full ${iconBgColor}`}>
             <Icon className={`w-3 h-3 ${iconColor}`} />
@@ -32,12 +32,12 @@ export function FinancialTile({
 
       {/* Amount */}
       <div className="mb-1">
-        <span className="text-xl font-bold text-gray-900">{amount}</span>
+        <span className="text-xl font-semibold text-[#282B3A]">{amount}</span>
       </div>
 
       {/* Date */}
       <div>
-        <span className="text-xs text-gray-500">{date}</span>
+        <span className="text-xs font-medium text-[#494D5F]">{date}</span>
       </div>
     </div>
   )
