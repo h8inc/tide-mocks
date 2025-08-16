@@ -30,8 +30,8 @@ export function MoneyMovements({ selectedPeriod, months }: MoneyMovementsProps) 
           </div>
         </div>
 
-        {/* Summary Card - Only show for current and future months */}
-        <div className="min-h-[88px]">
+        {/* Summary Card - Only show for current and future months, completely hidden for historical months */}
+
           {(() => {
             const currentMonth = months.find(m => m.isCurrent)?.label
             const isHistorical = !months.find(m => m.label === selectedPeriod)?.isCurrent && !months.find(m => m.label === selectedPeriod)?.isFuture
@@ -65,7 +65,7 @@ export function MoneyMovements({ selectedPeriod, months }: MoneyMovementsProps) 
         </div>
 
         {/* Transaction List - Show different content based on month type */}
-        <div className="min-h-[144px]">
+
           {(() => {
             const selectedMonthData = months.find(m => m.label === selectedPeriod)
             const isHistorical = selectedMonthData?.isCurrent === false && selectedMonthData?.isFuture === false
