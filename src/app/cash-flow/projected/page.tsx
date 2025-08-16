@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { ProjectedHeader } from "@/components/features/cash-flow/ProjectedHeader"
+import { BackHeader } from "@/components/features/cash-flow/BackHeader"
 import { ProjectedBalanceCard } from "@/components/features/cash-flow/ProjectedBalanceCard"
 import { ProjectionFactorsCard } from "@/components/features/cash-flow/ProjectionFactorsCard"
 import { StatusBar } from "@/components/features/cash-flow/StatusBar"
@@ -19,7 +19,7 @@ export default function ProjectedPage() {
       {/* Mobile Content */}
       <div className="md:hidden">
         <div>
-          <ProjectedHeader title="Projected Details" />
+          <BackHeader title="Projected Details" />
 
           {/* Content */}
           <div className="px-4 py-6">
@@ -38,7 +38,7 @@ export default function ProjectedPage() {
       <IPhoneFrame>
         <StatusBar />
         
-        <ProjectedHeader title="Projected Details" />
+        <BackHeader title="Projected Details" />
 
         <div className="px-6 py-6">
           <ProjectedBalanceCard 
