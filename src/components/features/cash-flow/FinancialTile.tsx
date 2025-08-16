@@ -19,7 +19,7 @@ export function FinancialTile({
   iconBgColor = "bg-gray-100"
 }: FinancialTileProps) {
   return (
-    <div className="flex-shrink-0 w-40 bg-white rounded-xl p-2 shadow-sm border border-gray-100">
+    <div className="flex-shrink-0 w-40 bg-white rounded-2xl p-2 shadow-sm border border-[#DDE8FF]">
       {/* Header with title and icon */}
       <div className="flex items-center justify-between mb-1">
         <h3 className="text-base font-medium text-[#282B3A]">{title}</h3>

@@ -51,7 +51,7 @@ export function ToggleCard({ selectedPeriod, onPeriodChange, months }: ToggleCar
 
   return (
     <div className="mx-4">
-      <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+      <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#DDE8FF]">
         {/* Toggle Group */}
         <div className="mb-6">
           <ToggleGroup
@@ -82,7 +82,7 @@ export function ToggleCard({ selectedPeriod, onPeriodChange, months }: ToggleCar
               {/* Summary Cards */}
               <div className="grid grid-cols-2 gap-2">
                 {/* Money In Card */}
-                <div className="bg-transparent rounded-xl py-4 px-2 flex flex-col items-center justify-center h-32">
+                <div className="bg-transparent rounded-2xl py-4 px-2 flex flex-col items-center justify-center h-32">
                   <h4 className="text-[12px] font-figtree text-[#282B3A] mb-3 text-center tracking-wide">
                     {selectedPeriod === currentMonthData?.label ? 'Received Money In' : 
                      months.find(m => m.label === selectedPeriod)?.isFuture ? 'Expected Money In' : 'Received Money In'}
@@ -113,7 +113,7 @@ export function ToggleCard({ selectedPeriod, onPeriodChange, months }: ToggleCar
                 </div>
 
                 {/* Money Out Card */}
-                <div className="bg-transparent rounded-xl py-4 px-2 flex flex-col items-center justify-center h-32">
+                <div className="bg-transparent rounded-2xl py-4 px-2 flex flex-col items-center justify-center h-32">
                   <h4 className="text-[12px] font-figtree text-[#282B3A] mb-3 text-center tracking-wide">
                     {selectedPeriod === currentMonthData?.label ? 'Paid Money Out' : 
                      months.find(m => m.label === selectedPeriod)?.isFuture ? 'Expected Money Out' : 'Paid Money Out'}
