@@ -129,7 +129,7 @@ export function MoneyMovements({ selectedPeriod, months }: MoneyMovementsProps) 
                   </div>
 
                   {/* Historical Transaction Row 2 */}
-                  <div className="flex items-center justify-between py-4">
+                  <div className="flex items-center justify-between py-4 border-b border-[#E4E4E7]">
                     <div className="flex items-center gap-3 flex-1">
                       <div className="w-10 h-10 bg-[#FEEAD5] rounded-lg flex items-center justify-center">
                         <div className="w-6 h-6 bg-[#A92518] rounded-sm"></div>
@@ -141,6 +141,22 @@ export function MoneyMovements({ selectedPeriod, months }: MoneyMovementsProps) 
                     </div>
                     <div className="text-right">
                       <span className="text-sm font-figtree font-medium text-[#282B3A]">£124.40</span>
+                    </div>
+                  </div>
+
+                  {/* Historical Transaction Row 3 */}
+                  <div className="flex items-center justify-between py-4">
+                    <div className="flex items-center gap-3 flex-1">
+                      <div className="w-10 h-10 bg-[#E8F9FD] rounded-lg flex items-center justify-center">
+                        <div className="w-6 h-6 bg-[#56CCCC] rounded-sm"></div>
+                      </div>
+                      <div className="flex flex-col gap-1">
+                        <h3 className="text-sm font-figtree font-medium text-[#282B3A]">Netflix</h3>
+                        <p className="text-xs font-figtree font-normal text-[#6F7281]">Subscription</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-sm font-figtree font-medium text-[#282B3A]">£15.99</span>
                     </div>
                   </div>
                 </div>
