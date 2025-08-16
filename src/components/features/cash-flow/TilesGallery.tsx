@@ -65,7 +65,7 @@ export function TilesGallery({ tiles }: TilesGalleryProps) {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="flex gap-4 min-w-max px-4">
+        <div className="flex gap-4 min-w-max px-4 py-2">
           {tiles.map((tile, index) => (
             <FinancialTile
               key={index}
