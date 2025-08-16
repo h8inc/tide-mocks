@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect } from "react"
 import { FinancialTile } from "./FinancialTile"
 import { HelpCircle, TrendingUp, TrendingDown, LucideIcon } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 interface TileData {
   title: string
@@ -18,6 +19,7 @@ interface TilesGalleryProps {
 }
 
 export function TilesGallery({ tiles }: TilesGalleryProps) {
+  const router = useRouter()
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
@@ -78,9 +80,13 @@ export function TilesGallery({ tiles }: TilesGalleryProps) {
                     ? getProjectedDate()
                     : tile.date
               }
-              icon={tile.icon}
+              icon={tile.title === "Projected" ? undefined : tile.icon}
               iconColor={tile.iconColor}
               iconBgColor={tile.iconBgColor}
+              showArrow={tile.title === "Projected"}
+              onClick={tile.title === "Projected" ? () => {
+                router.push('/cash-flow/projected')
+              } : undefined}
             />
           ))}
         </div>
