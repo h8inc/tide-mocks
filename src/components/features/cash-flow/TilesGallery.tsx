@@ -69,7 +69,7 @@ export function TilesGallery({ tiles }: TilesGalleryProps) {
           {tiles.map((tile, index) => (
             <FinancialTile
               key={index}
-              title={tile.title === "Projected" ? "Projected Balance" : tile.title}
+              title={tile.title}
               amount={tile.amount}
               date={
                 tile.title === "Cash today"
