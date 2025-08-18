@@ -2,6 +2,7 @@
 
 import React from "react"
 import { ChevronRight } from "lucide-react"
+import Link from "next/link"
 
 interface MoneyMovementsProps {
   selectedPeriod: string
@@ -18,7 +19,9 @@ export function MoneyMovements({ selectedPeriod, months }: MoneyMovementsProps) 
             {/* Title and Action Button */}
             <div className="flex flex-row justify-between items-end w-full">
               <h2 className="text-base font-figtree font-medium text-[#282B3A] flex-1">Money Movements</h2>
-              <button className="text-base font-figtree font-medium text-[#1929D6]">View All</button>
+              <Link href={`/cash-flow/money-movements?period=${selectedPeriod}`} className="text-base font-figtree font-medium text-[#1929D6] hover:opacity-80 transition-opacity">
+                View All
+              </Link>
             </div>
             
             {/* KPI Summary */}
@@ -41,23 +44,25 @@ export function MoneyMovements({ selectedPeriod, months }: MoneyMovementsProps) 
           
           return (
             <div className="px-4 py-4">
-              <div className="border border-[#DDE8FF] rounded-lg p-4 bg-gray-50">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="flex items-center">
-                      <div className="w-3 h-3 bg-[#E8F9FD] border border-[#56CCCC] rounded-full"></div>
-                      <div className="w-3 h-3 bg-[#FEEAD5] border border-[#F9AF82] rounded-full -ml-1"></div>
+              <Link href={`/cash-flow/projected?period=${selectedPeriod}`} className="block">
+                <div className="border border-[#DDE8FF] rounded-lg p-4 bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-[#E8F9FD] border border-[#56CCCC] rounded-full"></div>
+                        <div className="w-3 h-3 bg-[#FEEAD5] border border-[#F9AF82] rounded-full -ml-1"></div>
+                      </div>
+                      <span className="text-sm font-figtree font-medium text-[#282B3A]">
+                        {selectedPeriod === currentMonth ? '4 upcoming items' : '4 projected items'}
+                      </span>
                     </div>
-                    <span className="text-sm font-figtree font-medium text-[#282B3A]">
-                      {selectedPeriod === currentMonth ? '4 upcoming items' : '4 projected items'}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-sm font-figtree font-medium text-[#282B3A]">£5000</span>
-                    <ChevronRight className="w-6 h-6 text-[#616371]" />
+                    <div className="flex items-center gap-1">
+                      <span className="text-sm font-figtree font-medium text-[#282B3A]">£5000</span>
+                      <ChevronRight className="w-6 h-6 text-[#616371]" />
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           )
         })()}

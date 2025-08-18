@@ -24,6 +24,12 @@ export function ProjectedBalanceCard({
 }: ProjectedBalanceCardProps) {
   const [showConfidenceDetails, setShowConfidenceDetails] = useState(false)
 
+  // Calculate total money out
+  const billsAmount = parseFloat(moneyOut.bills.amount.replace(/[£,]/g, ''))
+  const paymentsAmount = parseFloat(moneyOut.payments.amount.replace(/[£,]/g, ''))
+  const totalMoneyOut = billsAmount + paymentsAmount
+  const formattedTotalMoneyOut = `£${totalMoneyOut.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+
   const getConfidenceColor = (level: string) => {
     switch (level) {
       case "high": return "text-teal-600 bg-[#E8F9FD]"
@@ -91,7 +97,7 @@ export function ProjectedBalanceCard({
           </div>
           <div className="flex items-center justify-between text-orange-800">
             <span>- Money out (6 weeks)</span>
-            <span className="font-medium">-{moneyOut.bills.amount}</span>
+            <span className="font-medium">-{formattedTotalMoneyOut}</span>
           </div>
           <div className="border-t border-gray-200 pt-2 flex items-center justify-between">
             <span className="font-medium text-[#282B3A]">= Projected</span>
@@ -101,8 +107,8 @@ export function ProjectedBalanceCard({
       </div>
 
       {/* Data Sources */}
-      <div className="space-y-4">
-        <h3 className="text-sm font-medium text-[#282B3A]">Data sources for your forecast:</h3>
+      <div className="space-y-2">
+    
         
         {/* Money In */}
         <DataSourceItem

@@ -3,16 +3,12 @@
 import React from "react"
 import { BackHeader } from "@/components/features/cash-flow/BackHeader"
 import { ProjectedBalanceCard } from "@/components/features/cash-flow/ProjectedBalanceCard"
-import { ProjectionFactorsCard } from "@/components/features/cash-flow/ProjectionFactorsCard"
+
 import { StatusBar } from "@/components/features/cash-flow/StatusBar"
 import { IPhoneFrame } from "@/components/features/cash-flow/IPhoneFrame"
 
 export default function ProjectedPage() {
-  const projectionFactors = [
-    { label: "Expected Income", value: "+£2,500.00" },
-    { label: "Expected Expenses", value: "-£1,200.00" },
-    { label: "Net Projection", value: "+£123.22", isTotal: true }
-  ]
+
 
   // Sample data for the new ProjectedBalanceCard structure
   const projectedBalanceData = {
@@ -38,8 +34,6 @@ export default function ProjectedPage() {
           {/* Content */}
           <div className="px-4 py-4">
             <ProjectedBalanceCard {...projectedBalanceData} />
-            
-            <ProjectionFactorsCard factors={projectionFactors} />
           </div>
         </div>
       </div>
@@ -52,8 +46,6 @@ export default function ProjectedPage() {
 
         <div className="px-4 py-4">
           <ProjectedBalanceCard {...projectedBalanceData} />
-          
-          <ProjectionFactorsCard factors={projectionFactors} />
         </div>
       </IPhoneFrame>
     </div>
