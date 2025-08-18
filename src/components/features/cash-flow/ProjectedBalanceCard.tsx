@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { Calculator, ChevronRight, ChevronDown } from "lucide-react"
+import { Calculator, ChevronDown } from "lucide-react"
+import { DataSourceItem } from "./DataSourceItem"
 
 interface ProjectedBalanceCardProps {
   currentBalance: string
@@ -62,7 +63,7 @@ export function ProjectedBalanceCard({
       
               {/* Projected Balance Amount */}
         <div className="text-center mb-6">
-          <div className="text-2xl font-semibold text-teal-600 mb-1">{projectedBalance}</div>
+          <div className="text-2xl font-semibold text-teal-600">{projectedBalance}</div>
           <span className="text-[#6F7281] text-sm">
             On {new Date(Date.now() + 45 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', { 
               day: 'numeric', 
@@ -104,49 +105,34 @@ export function ProjectedBalanceCard({
         <h3 className="text-sm font-medium text-[#282B3A]">Data sources for your forecast:</h3>
         
         {/* Money In */}
-        <div className="bg-blue-50 rounded-lg p-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-              <span className="text-sm text-[#6F7281]">Invoices (projected)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-medium text-[#282B3A]">{moneyIn.invoices.amount}</span>
-              <span className="text-xs text-[#6F7281]">{moneyIn.invoices.count} outstanding</span>
-              <ChevronRight className="w-4 h-4 text-[#6F7281]" />
-            </div>
-          </div>
-        </div>
+        <DataSourceItem
+          title="Invoices (projected)"
+          count={moneyIn.invoices.count}
+          amount={moneyIn.invoices.amount}
+          bgColor="bg-blue-50"
+          countLabel="outstanding"
+          onClick={() => {/* TODO: Navigate to invoices */}}
+        />
 
         {/* Money Out */}
         <div className="space-y-2">
-          <div className="bg-orange-50 rounded-lg p-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                <span className="text-sm text-[#6F7281]">Projected bills</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-[#282B3A]">{moneyOut.bills.amount}</span>
-                <span className="text-xs text-[#6F7281]">{moneyOut.bills.count} outstanding</span>
-                <ChevronRight className="w-4 h-4 text-[#6F7281]" />
-              </div>
-            </div>
-          </div>
+          <DataSourceItem
+            title="Projected bills"
+            count={moneyOut.bills.count}
+            amount={moneyOut.bills.amount}
+            bgColor="bg-orange-50"
+            countLabel="outstanding"
+            onClick={() => {/* TODO: Navigate to bills */}}
+          />
           
-          <div className="bg-orange-50 rounded-lg p-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                <span className="text-sm text-[#6F7281]">Upcoming payments</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-[#282B3A]">{moneyOut.payments.amount}</span>
-                <span className="text-xs text-[#6F7281]">{moneyOut.payments.count} scheduled</span>
-                <ChevronRight className="w-4 h-4 text-[#6F7281]" />
-              </div>
-            </div>
-          </div>
+          <DataSourceItem
+            title="Upcoming payments"
+            count={moneyOut.payments.count}
+            amount={moneyOut.payments.amount}
+            bgColor="bg-orange-50"
+            countLabel="scheduled"
+            onClick={() => {/* TODO: Navigate to payments */}}
+          />
         </div>
       </div>
 
