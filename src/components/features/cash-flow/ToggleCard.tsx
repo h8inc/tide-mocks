@@ -82,8 +82,8 @@ export function ToggleCard({ selectedPeriod, onPeriodChange, months }: ToggleCar
               {/* Summary Cards */}
               <div className="grid grid-cols-2 gap-2">
                 {/* Money In Card */}
-                <div className="bg-transparent rounded-2xl py-4 px-2 flex flex-col items-center justify-center h-32">
-                  <h4 className="text-[12px] font-figtree text-[#282B3A] mb-3 text-center tracking-wide">
+                <div className="bg-transparent rounded-2xl py-4 px-2 flex flex-col items-center justify-center h-28">
+                  <h4 className="text-[12px] font-figtree text-[#282B3A] mb-0 text-center tracking-wide">
                     {selectedPeriod === currentMonthData?.label ? 'Received Money In' : 
                      months.find(m => m.label === selectedPeriod)?.isFuture ? 'Expected Money In' : 'Received Money In'}
                   </h4>
@@ -95,7 +95,7 @@ export function ToggleCard({ selectedPeriod, onPeriodChange, months }: ToggleCar
                         </div>
                       </div>
                       <div className="border-t border-[#9FBDFF] pt-3">
-                        <div className="text-[12px] font-figtree text-[#282B3A] mb-3 tracking-wide">
+                        <div className="text-[12px] font-figtree text-[#282B3A] tracking-wide">
                           Expected Money In
                         </div>
                         <div className="text-[16px] font-figtree font-semibold text-teal-600">
@@ -113,8 +113,8 @@ export function ToggleCard({ selectedPeriod, onPeriodChange, months }: ToggleCar
                 </div>
 
                 {/* Money Out Card */}
-                <div className="bg-transparent rounded-2xl py-4 px-2 flex flex-col items-center justify-center h-32">
-                  <h4 className="text-[12px] font-figtree text-[#282B3A] mb-3 text-center tracking-wide">
+                <div className="bg-transparent rounded-2xl py-4 px-2 flex flex-col items-center justify-center h-28">
+                  <h4 className="text-[12px] font-figtree text-[#282B3A] text-center tracking-wide">
                     {selectedPeriod === currentMonthData?.label ? 'Paid Money Out' : 
                      months.find(m => m.label === selectedPeriod)?.isFuture ? 'Expected Money Out' : 'Paid Money Out'}
                   </h4>
@@ -126,7 +126,7 @@ export function ToggleCard({ selectedPeriod, onPeriodChange, months }: ToggleCar
                         </div>
                       </div>
                       <div className="border-t border-[#9FBDFF] pt-3">
-                        <div className="text-[12px] font-figtree text-[#282B3A] mb-3 tracking-wide">
+                        <div className="text-[12px] font-figtree text-[#282B3A] tracking-wide">
                           Expected Money Out
                         </div>
                         <div className="text-[16px] font-figtree font-semibold text-orange-600">
@@ -218,8 +218,8 @@ export function ToggleCard({ selectedPeriod, onPeriodChange, months }: ToggleCar
           ) : (
             <div className="space-y-6">
               {/* Balance Display Section */}
-              <div className="flex flex-col items-center justify-center h-32 text-center">
-                <div className="text-[12px] font-figtree text-[#282B3A] mb-2">
+              <div className="flex flex-col items-center justify-center h-28 text-center">
+                <div className="text-[12px] font-figtree text-[#282B3A]">
                   Projected balance for 31st of Aug
                 </div>
                 <div className="text-[24px] font-figtree font-semibold text-teal-600">

@@ -14,7 +14,7 @@ export function BackHeader({ title, showAvatar = false, avatarInitials }: BackHe
   const router = useRouter()
 
   return (
-    <header className="flex justify-between items-center h-14 bg-background border-b border-[#DDE8FF] px-4">
+    <header className="flex items-center h-14 bg-background border-b border-[#DDE8FF] px-4">
       {/* Left Side - Back Arrow */}
       <button 
         onClick={() => router.back()}
@@ -23,14 +23,14 @@ export function BackHeader({ title, showAvatar = false, avatarInitials }: BackHe
         <ArrowLeft className="w-6 h-6" />
       </button>
 
-      {/* Center - Title */}
-      <h1 className="font-semibold text-lg text-[#282B3A]">
+      {/* Title - positioned close to arrow */}
+      <h1 className="font-semibold text-lg text-[#282B3A] ml-2">
         {title}
       </h1>
 
-      {/* Right Side - Avatar (optional) */}
+      {/* Right Side - Avatar (optional) - pushed to the right */}
       {showAvatar && avatarInitials && (
-        <div className="w-10 h-10 bg-blue-600 text-white font-medium text-sm rounded-full flex items-center justify-center">
+        <div className="ml-auto w-10 h-10 bg-blue-600 text-white font-medium text-sm rounded-full flex items-center justify-center">
           {avatarInitials}
         </div>
       )}
