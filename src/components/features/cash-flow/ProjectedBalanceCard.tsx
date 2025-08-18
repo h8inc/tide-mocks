@@ -47,7 +47,7 @@ export function ProjectedBalanceCard({
       <div className="flex items-center justify-between mb-6">
         <div>
           <h2 className="text-lg font-semibold text-[#282B3A]">Projected Balance</h2>
-          <p className="text-xs text-[#6F7281]">Powered by your Tide data</p>
+          
         </div>
         
         <button
@@ -61,7 +61,16 @@ export function ProjectedBalanceCard({
       </div>
       
               {/* Projected Balance Amount */}
-        <div className="text-2xl font-semibold text-teal-600 mb-6 text-center">{projectedBalance}</div>
+        <div className="text-center mb-6">
+          <div className="text-2xl font-semibold text-teal-600 mb-1">{projectedBalance}</div>
+          <span className="text-[#6F7281] text-sm">
+            On {new Date(Date.now() + 45 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', { 
+              day: 'numeric', 
+              month: 'short', 
+              year: 'numeric' 
+            })}
+          </span>
+        </div>
       
       {/* Simple Math Formula */}
       <div className="bg-gray-50 rounded-xl p-4 mb-6">
@@ -75,11 +84,11 @@ export function ProjectedBalanceCard({
             <span className="text-[#6F7281]">Current balance</span>
             <span className="font-medium text-[#282B3A]">{currentBalance}</span>
           </div>
-          <div className="flex items-center justify-between text-teal-600">
+          <div className="flex items-center justify-between text-teal-700">
             <span>+ Money in (6 weeks)</span>
             <span className="font-medium">+{moneyIn.invoices.amount}</span>
           </div>
-          <div className="flex items-center justify-between text-red-600">
+          <div className="flex items-center justify-between text-orange-800">
             <span>- Money out (6 weeks)</span>
             <span className="font-medium">-{moneyOut.bills.amount}</span>
           </div>
