@@ -12,6 +12,17 @@ interface FinancialTileProps {
   onClick?: () => void
 }
 
+// Touch data properties that will be added to DOM elements
+
+// Extend HTMLElement to include our custom touch data
+declare global {
+  interface HTMLElement {
+    touchStartX?: number
+    touchStartY?: number
+    touchStartTime?: number
+  }
+}
+
 export function FinancialTile({
   title,
   amount,
@@ -23,22 +34,24 @@ export function FinancialTile({
   onClick
 }: FinancialTileProps) {
   // Touch handling to prevent accidental clicks during swipes
-  const handleTouchStart = (e: React.TouchEvent) => {
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     if (!onClick) return
     // Store initial touch position and time
     const touch = e.touches[0]
-    ;(e.currentTarget as any).touchStartX = touch.clientX
-    ;(e.currentTarget as any).touchStartY = touch.clientY
-    ;(e.currentTarget as any).touchStartTime = Date.now()
+    const target = e.currentTarget
+    target.touchStartX = touch.clientX
+    target.touchStartY = touch.clientY
+    target.touchStartTime = Date.now()
   }
 
-  const handleTouchEnd = (e: React.TouchEvent) => {
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
     if (!onClick) return
     // Check if this was a tap vs swipe
     const touch = e.changedTouches[0]
-    const startX = (e.currentTarget as any).touchStartX
-    const startY = (e.currentTarget as any).touchStartY
-    const startTime = (e.currentTarget as any).touchStartTime
+    const target = e.currentTarget
+    const startX = target.touchStartX
+    const startY = target.touchStartY
+    const startTime = target.touchStartTime
     
     if (startX !== undefined && startY !== undefined && startTime !== undefined) {
       const deltaX = Math.abs(touch.clientX - startX)
