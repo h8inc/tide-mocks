@@ -14,6 +14,20 @@ export default function ProjectedPage() {
     { label: "Net Projection", value: "+£123.22", isTotal: true }
   ]
 
+  // Sample data for the new ProjectedBalanceCard structure
+  const projectedBalanceData = {
+    currentBalance: "£5,000.00",
+    projectedBalance: "+£2,000.00",
+    moneyIn: {
+      invoices: { amount: "£5,000.00", count: 8 }
+    },
+    moneyOut: {
+      bills: { amount: "£5,000.00", count: 12 },
+      payments: { amount: "£3,000.00", count: 5 }
+    },
+    confidence: "high" as const
+  }
+
   return (
     <div className="min-h-screen bg-gray-100 py-1 md:py-4">
       {/* Mobile Content */}
@@ -22,12 +36,8 @@ export default function ProjectedPage() {
           <BackHeader title="Projected Details" />
 
           {/* Content */}
-          <div className="px-4 py-6">
-            <ProjectedBalanceCard 
-              amount="£123.22"
-              date="31 Sep 2025"
-              description="45 days ahead forecast"
-            />
+          <div className="px-4 py-4">
+            <ProjectedBalanceCard {...projectedBalanceData} />
             
             <ProjectionFactorsCard factors={projectionFactors} />
           </div>
@@ -40,12 +50,8 @@ export default function ProjectedPage() {
         
         <BackHeader title="Projected Details" />
 
-        <div className="px-6 py-6">
-          <ProjectedBalanceCard 
-            amount="£123.22"
-            date="31 Sep 2025"
-            description="45 days ahead forecast"
-          />
+        <div className="px-4 py-4">
+          <ProjectedBalanceCard {...projectedBalanceData} />
           
           <ProjectionFactorsCard factors={projectionFactors} />
         </div>
